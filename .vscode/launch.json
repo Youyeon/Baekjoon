@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - p_9012",
+            "request": "launch",
+            "mainClass": "p_9012",
+            "projectName": "Baekjoon_e29ed544"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - p_4153",
             "request": "launch",
             "mainClass": "p_4153",
