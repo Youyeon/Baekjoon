@@ -3,10 +3,11 @@
 #include <stdio.h>
 
 int main(void) {
-    int N,K;
+    int N;
+    long long K;
     scanf("%d",&N);
     while(N--) {   
-        scanf("%d",&K);
+        scanf("%lld",&K);
         if (K%2==0)
             printf("even");
         else
