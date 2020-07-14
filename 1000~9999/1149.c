@@ -1,5 +1,5 @@
 // https://www.acmicpc.net/problem/1149
-// 제목: RGB거리
+// 제목: RGB거리 
 #include <stdio.h>
 int min(int, int);
 int total_cost[1000][3]; //총 비용
@@ -7,7 +7,7 @@ int cost[1000][3]; //비용
 
 int main(void) {
 	int N; //집의 개수
-	int min_cost = 10000000;
+	int min_cost = 10000000; //초기값
 	scanf("%d", &N);
 	for (int i = 0; i < N; i++)
 		scanf("%d %d %d", &cost[i][0], &cost[i][1], &cost[i][2]);
