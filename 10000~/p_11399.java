@@ -1,7 +1,7 @@
 //https://www.acmicpc.net/problem/11399
 //제목: ATM
 import java.util.*;
-public class Main {
+public class p_11399 {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		int sum=0;
