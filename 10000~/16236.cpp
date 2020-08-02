@@ -4,8 +4,6 @@
 #include <stdlib.h>
 #include <queue>
 using namespace std;
-
-int can_eat_fishes();
 pair<int, int> neareast_from(int, int);
 int isValid(int, int);
 
@@ -28,10 +26,12 @@ int main(void) {
 				pos_y = j;
 			}
 		}
-	while (can_eat_fishes()) {
+	while (1) {
 		area[pos_x][pos_y] = 0;
 		pair<int, int> neareast = neareast_from(pos_x, pos_y); //먹을 수 있는 물고기 중 가장 가까이 있는 물고기의 좌표, 지나야하는 칸
-		pos_x = neareast.first;
+		if (pos_x == neareast.first && pos_y == neareast.second)
+			break; //먹을 수 있는 물고기가 없는 경우 중단
+        pos_x = neareast.first;
 		pos_y = neareast.second;
 		second += moved[pos_x][pos_y];
 		cnt_eat += 1;
@@ -44,16 +44,6 @@ int main(void) {
 	cout << second << endl;
 }
 
-int can_eat_fishes () { //먹을 수 있는 물고기의 수
-	int cnt = 0;
-	for (int i = 0; i < N; i++)
-		for (int j = 0; j < N; j++) {
-			if (area[i][j] && area[i][j] < B_size)
-				cnt++;
-		}
-	return cnt;
-}
-
 pair<int, int> neareast_from(int x, int y) {
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < N; j++) {
@@ -64,10 +54,9 @@ pair<int, int> neareast_from(int x, int y) {
 	pair<int, int> res;
 	queue<pair<int, int>> q;
 	q.push({ x,y });
-	int near_x;
-	int near_y;
+	int near_x = x;
+	int near_y = y;
 	int dist = 400;
-	/*시작*/
 	while (!q.empty()) {
 		pair<int, int> to = q.front();
 		int x = to.first;
@@ -105,7 +94,10 @@ pair<int, int> neareast_from(int x, int y) {
 			}
 		}
 	}
-	/*끝*/
+    if (!area[near_x][near_y]) {
+	    near_x = x;
+		near_y = y;
+	}
 	res = { near_x,near_y };
 	return res;
 }
