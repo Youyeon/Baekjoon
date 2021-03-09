@@ -1,17 +1,17 @@
-//// 19³â 13È¸ 4¹ø
-//#include <iostream>
-//using namespace std;
-//
-//int main(void) {
-//	int n;
-//	cin >> n;
-//	for (int i = 0; i < n; i++) {
-//		int X;
-//		cin >> X;
-//		int check = X % 100 / 10; //10ÀÇ ÀÚ¸®¼ö
-//		if (check >= 5)
-//			cout << X - (X % 100) + 100 << " " << X - (X % 100) << endl;
-//		else
-//			cout << X - (X % 100)<< " " << X - (X % 100) << endl;
-//	}
-//}
+// 19ë…„ 13íšŒ 4ë²ˆ
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int n;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		int X;
+		cin >> X;
+		int check = X % 100 / 10; //10Ã€Ã‡ Ã€ÃšÂ¸Â®Â¼Ã¶
+		if (check >= 5)
+			cout << X - (X % 100) + 100 << " " << X - (X % 100) << endl;
+		else
+			cout << X - (X % 100)<< " " << X - (X % 100) << endl;
+	}
+}
