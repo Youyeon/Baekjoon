@@ -1,69 +1,69 @@
-//// 2020³â 15È¸ 7¹ø
-//#define _CRT_SECURE_NO_WARNINGS
-//#include <iostream>
-//#include <vector>
-//#include <algorithm>
-//using namespace std;
-//
-//int s[1000]; //Èñ¸Á½ÃÀÛ½Ã°£
-//int e[1000]; //Èñ¸ÁÁ¾·á½Ã°£
-//int solution(int[], int[], int);
-//bool cmp_e(pair<int, int>, pair<int, int>);
-//
-//vector<pair<int, int>> se;
-//
-//int main(void) {
-//	// ³¡³ª´Â ½Ã°£ ±âÁØÀ¸·Î Á¤·Ä ÈÄ Ã¹¹øÂ° ÇĞ»ıÀÌ ³¡³­ ½Ã°£°ú °¡Àå °¡±î¿î ÇĞ»ıÀÌ ´ÙÀ½ ÀÚ¸®¸¦ ¸ÃÀ½
-//	// 2¹ø ¹İº¹ > 2ÀÚ¸®¿¡ ´ëÇÑ ÃÖ´ë ÇĞ»ı¼ö °è»ê °¡´É?
-//	int n;
-//	cin >> n;
-//	for (int i = 0; i < n; i++)
-//		scanf("%d", &s[i]); //start time
-//	for (int i = 0; i < n; i++)
-//		scanf("%d", &e[i]); //end time
-//	cout << solution(s, e, n) << endl;
-//	return 0;
-//}
-//
-//int solution(int s[], int e[], int n) {
-//	int answer = 0;
-//	int seat = 2;
-//	for (int i = 0; i < n; i++)
-//		se.push_back({ s[i], e[i] });
-//	sort(se.begin(), se.end(), cmp_e); //³¡³ª´Â ½Ã°£ ±âÁØ Á¤·Ä
-//	while (seat--) {
-//		int end_time = se[0].second; // end_time = 3
-//		answer++;
-//		se.erase(se.begin());
-//		while (1) {
-//			int i;
-//			int flag = 0;
-//			int min = 86400; // Èñ¸ÁÁ¾·á½Ã°£ max
-//			int idx = 0;
-//			for (i = 0; i < se.size(); i++) {
-//				if (se[i].first < min && se[i].first >= end_time) {// 3 < 6
-//					min = se[i].first; // min = 3
-//					idx = i;
-//					flag = 1; // ´ÙÀ½ ÇĞ»ıÀ» Ã£¾Ò´Ù
-//				}
-//			}
-//			if (flag) {
-//				answer++;
-//				end_time = se[idx].second; //10
-//				se.erase(se.begin() + idx);
-//				flag = 0;
-//			}
-//			else {
-//				break; //ÇÑ ÀÇÀÚ¿¡ ¾ÉÀ» ÇĞ»ıÀ» ¸ğµÎ °í¸¥ °æ¿ì
-//			}
-//		}
-//	}
-//	return answer;
-//}
-//
-//bool cmp_e(pair<int, int> a, pair<int, int> b) {
-//	if (a.second == b.second)
-//		return a.first < b.first;
-//	else
-//		return a.second < b.second;
-//}
+// 2020ë…„ 15íšŒ 7ë²ˆ
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int s[1000]; //í¬ë§ì‹œì‘ì‹œê°„
+int e[1000]; //í¬ë§ì¢…ë£Œì‹œê°„
+int solution(int[], int[], int);
+bool cmp_e(pair<int, int>, pair<int, int>);
+
+vector<pair<int, int>> se;
+
+int main(void) {
+	// ëë‚˜ëŠ” ì‹œê°„ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬ í›„ ì²«ë²ˆì§¸ í•™ìƒì´ ëë‚œ ì‹œê°„ê³¼ ê°€ì¥ ê°€ê¹Œìš´ í•™ìƒì´ ë‹¤ìŒ ìë¦¬ë¥¼ ë§¡ìŒ
+	// 2ë²ˆ ë°˜ë³µ > 2ìë¦¬ì— ëŒ€í•œ ìµœëŒ€ í•™ìƒìˆ˜ ê³„ì‚° ê°€ëŠ¥?
+	int n;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+		scanf("%d", &s[i]); //start time
+	for (int i = 0; i < n; i++)
+		scanf("%d", &e[i]); //end time
+	cout << solution(s, e, n) << endl;
+	return 0;
+}
+
+int solution(int s[], int e[], int n) {
+	int answer = 0;
+	int seat = 2;
+	for (int i = 0; i < n; i++)
+		se.push_back({ s[i], e[i] });
+	sort(se.begin(), se.end(), cmp_e); //ëë‚˜ëŠ” ì‹œê°„ ê¸°ì¤€ ì •ë ¬
+	while (seat--) {
+		int end_time = se[0].second; // end_time = 3
+		answer++;
+		se.erase(se.begin());
+		while (1) {
+			int i;
+			int flag = 0;
+			int min = 86400; // í¬ë§ì¢…ë£Œì‹œê°„ max
+			int idx = 0;
+			for (i = 0; i < se.size(); i++) {
+				if (se[i].first < min && se[i].first >= end_time) {// 3 < 6
+					min = se[i].first; // min = 3
+					idx = i;
+					flag = 1; // ë‹¤ìŒ í•™ìƒì„ ì°¾ì•˜ë‹¤
+				}
+			}
+			if (flag) {
+				answer++;
+				end_time = se[idx].second; //10
+				se.erase(se.begin() + idx);
+				flag = 0;
+			}
+			else {
+				break; //í•œ ì˜ìì— ì•‰ì„ í•™ìƒì„ ëª¨ë‘ ê³ ë¥¸ ê²½ìš°
+			}
+		}
+	}
+	return answer;
+}
+
+bool cmp_e(pair<int, int> a, pair<int, int> b) {
+	if (a.second == b.second)
+		return a.first < b.first;
+	else
+		return a.second < b.second;
+}
