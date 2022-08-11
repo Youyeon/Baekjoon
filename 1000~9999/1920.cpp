@@ -19,7 +19,7 @@ int main(void) {
 }
 
 int find(int K, int N) {
-	int low = 0, high=N;
+	int low = 0, high=N-1;
 	while (low <= high) {
 		int mid = (low + high) / 2;
 		if (K == A[mid])
